@@ -1,0 +1,42 @@
+.animated-border {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 4px 40px -16px rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.animated-border .card {
+  width: 95%;
+  height: 95%;
+  background: #fff;
+  border-radius: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  font-family: "Roboto Black", sans-serif;
+  font-size: 60px;
+}
+
+.animated-border::after {
+  content: "";
+  height: 150%;
+  width: 150%;
+  position: absolute;
+  background: conic-gradient(red, yellow, blue, red);
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateZ(0deg);
+  animation: spin 8s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
